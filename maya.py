@@ -1,21 +1,28 @@
 import turtle
+SIZE_X=800
+SIZE_Y=800
 
 kenya=turtle.clone()
-egypt=turtle.colne()
-uganda=turtle.colne()
-syria=turtle.colne()
+EGYPT=turtle.clone()
+uganda=turtle.clone()
+syria=turtle.clone()
 
-kenya="kenya1.jpg"
-turtle.register_shape(kenya)
-turtle.shape(kenya)
-                      
-egypt="egypt1.jpg"
-turtle.register_shape(egypt)
-turtle.shape(egypt)
+kenya.penup()
+turtle.register_shape("kenya3.gif")
+kenya.shape('kenya3.gif')
+kenya.goto(-200,200)
 
-uganda="uganda1.jpg"
-turtle.register_shape(uganda)
-turtle.shape(uganda)
+EGYPT.penup()
+turtle.register_shape("EGYPT1.gif")
+EGYPT.shape('EGYPT1.gif')
+EGYPT.goto(-200,10)
 
-syria="syria1.jpg"
-turtle.shape(syria)
+uganda.penup()
+turtle.register_shape("uganda3.gif")
+uganda.shape('uganda3.gif')
+uganda.goto(-200,-175)
+
+syria.penup()
+turtle.register_shape("syria2.gif")
+syria.shape('syria2.gif')
+syria.goto(100,-175)
