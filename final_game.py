@@ -15,7 +15,40 @@ turtle.goto(350,-350)
 turtle.goto(350,350)
 turtle.penup()
 turtle.goto(0,0)
-turtle.hideturtle()
+
+
+#####################################################
+#maya's code
+SIZE_X=800
+SIZE_Y=800
+
+kenya=turtle.clone()
+EGYPT=turtle.clone()
+uganda=turtle.clone()
+syria=turtle.clone()
+
+kenya.penup()
+turtle.register_shape("kenya3.gif")
+kenya.shape('kenya3.gif')
+kenya.goto(-200,200)
+
+EGYPT.penup()
+turtle.register_shape("EGYPT1.gif")
+EGYPT.shape('EGYPT1.gif')
+EGYPT.goto(-200,10)
+
+uganda.penup()
+turtle.register_shape("uganda3.gif")
+uganda.shape('uganda3.gif')
+uganda.goto(-200,-175)
+
+syria.penup()
+turtle.register_shape("syria2.gif")
+syria.shape('syria2.gif')
+syria.goto(100,-175)
+
+###############################################
+
 
 pizza = turtle.clone()
 pizza.hideturtle()
@@ -71,3 +104,11 @@ water.hideturtle()
 water.goto(40,290)
 water.stamp()
 water.showturtle()
+
+
+
+
+
+
+
+
