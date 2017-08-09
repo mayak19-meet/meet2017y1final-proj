@@ -3,7 +3,24 @@
 import turtle
 import random
 import time
-turtle.bgcolor('dodgerblue')
+
+SIZE_X=1300
+SIZE_Y=750
+turtle.setup(SIZE_X,SIZE_Y)
+UP_EDGE = SIZE_Y/2
+DOWN_EDGE = -SIZE_Y/2
+RIGHT_EDGE = SIZE_X/2
+LEFT_EDGE = -SIZE_X/2
+
+#how far the snake moves 
+SQUARE_SIZE=10
+pos_list=[]
+
+#turtle.tracer(1,0)
+
+#def first_screen():
+w = turtle.clone()
+turtle.bgcolor("dodgerblue")
 
 turtle.pencolor("yellow")
 turtle.pensize(4)
@@ -16,116 +33,88 @@ turtle.goto(350,-350)
 turtle.goto(350,350)
 turtle.penup()
 turtle.goto(0,0)
+turtle.hideturtle()
 
-#####################################################
-#maya's code
-SIZE_X=700
-SIZE_Y=700
+up_gif = turtle.clone()
+up_gif.hideturtle()
+turtle.register_shape("arrowup.gif")
+up_gif.shape("arrowup.gif")
 
+down_gif = turtle.clone()
+down_gif.hideturtle()
+turtle.register_shape("arrowdown.gif")
+down_gif.shape("arrowdown.gif")
+
+left_gif = turtle.clone()
+left_gif.hideturtle()
+turtle.register_shape("arrowleft.gif")
+left_gif.shape("arrowleft.gif")
+
+right_gif = turtle.clone()
+right_gif.hideturtle()
+turtle.register_shape("arrowright.gif")
+right_gif.shape("arrowright.gif")
+
+turtle.pencolor("black")
+turtle.ht()
+
+w.ht()
+w.pu()
+w.goto(-115, 300)
+w.write("To go UP Press: ", font = ("Ariel",20,"normal"))
+w.goto(-120,-210)
+w.write("To go DOWN Press: ", font = ("Ariel",20,"normal"))
+w.goto(-325,63)
+w.write("To go LEFT Press: ", font = ("Ariel",20,"normal"))
+w.goto(80,63)
+w.write("To go RIGHT Press: ", font = ("Ariel",20,"normal"))
+
+up_gif.hideturtle()
+up_gif.goto(0,238)
+up_gif.stamp()
+
+down_gif.hideturtle()
+down_gif.goto(0,-275)
+down_gif.stamp()
+
+left_gif.hideturtle()
+left_gif.goto(-275,0)
+left_gif.stamp()
+
+right_gif.hideturtle()
+right_gif.goto(275,0)
+right_gif.stamp()
+
+w.pencolor("aliceblue")
+w.goto(-290,-130)
+w.write("Press SPACE to continue", font = ("Ariel",35,"normal"))
+
+s_score = turtle.clone()
+u_score = turtle.clone()
+e_score = turtle.clone()
+k_score = turtle.clone()
+##################
+start_time = 120##chpse how much time till the game ends 
+##################
 kenya=turtle.clone()
 egypt=turtle.clone()
 uganda=turtle.clone()
 syria=turtle.clone()
-
 kenya.penup()
 turtle.register_shape("kenya3.gif")
 kenya.shape('kenya3.gif')
-kenya.goto(-200,200)
 
 egypt.penup()
 turtle.register_shape("EGYPT1.gif")
 egypt.shape('EGYPT1.gif')
-egypt.goto(-200,10)
 
 uganda.penup()
 turtle.register_shape("uganda3.gif")
 uganda.shape('uganda3.gif')
-uganda.goto(-200,-170)
 
 syria.penup()
 turtle.register_shape("syria2.gif")
 syria.shape('syria2.gif')
-syria.goto(100,-170)
-
-###############################################
-
-pizza = turtle.clone()
-pizza.hideturtle()
-turtle.register_shape("Pizza.gif")
-pizza.shape("Pizza.gif")
-
-hamburger = turtle.clone()
-hamburger.hideturtle()
-turtle.register_shape("burger_sandwich2.gif")
-hamburger.shape("burger_sandwich2.gif")
-
-water = turtle.clone()
-water.hideturtle()
-turtle.register_shape("water4.gif")
-water.shape("water4.gif")
-
-cola = turtle.clone()
-cola.hideturtle()
-turtle.register_shape("cocacola7.gif")
-cola.shape("cocacola7.gif")
-##
-##hamburger = "burger_sandwich.gif"
-##
-##turtle.register_shape(hamburger)
-##turtle.shape(hamburger)
-##
-##water = "water.gif"
-##
-##turtle.register_shape(water)
-##turtle.shape(water)
-##
-##cola = "cocacola.gif"
-##
-##turtle.register_shape(cola)
-##turtle.shape(cola)
-
-pizza.hideturtle()
-pizza.goto(290,290)
-pizza.stamp()
-pizza.showturtle()
-
-cola.hideturtle()
-cola.goto(210,290)
-cola.stamp()
-cola.showturtle()
-
-hamburger.hideturtle()
-hamburger.goto(120,290)
-print(hamburger.pos())
-hamburger.stamp()
-hamburger.showturtle()
-
-water.hideturtle()
-water.goto(40,290)
-print(water.pos())
-water.stamp()
-water.showturtle()
-
-
-
-
-
-############################################################################################
-#####eliass code
-turtle.tracer(1,0)
-size_x=800
-size_y=500
-turtle.setup(size_x,size_y)
-turtle.penup()
-#how far the snake moves 
-SQUARE_SIZE=10
-pos_list=[]
-plane=turtle.clone()
-#the shape of the plane
-turtle.register_shape("download (2).gif")
-plane.shape("download (2).gif")
-turtle.hideturtle()
-
 
 UP_ARROW='Up'
 LEFT_ARROW='Left'
@@ -142,19 +131,143 @@ direction=UP
 end_time= time.time()+120
 
 
-
+plane=turtle.clone()
+#the shape of the plane
+turtle.register_shape("download (2).gif")
+plane.shape("download (2).gif")
+turtle.hideturtle()
 
 new_pos = plane.pos()
 new_x_pos = new_pos[0]
 new_y_pos = new_pos[1]
-############################################################################
+
+def game():
+    global UP_EDGE, DOWN_EDGE, LEFT_EDGE, RIGHT_EDGE, SIZE_X, SIZE_Y, start_time
+
+    ##################################
+    #to Carmi
+
+    ############
+
+        
+    #first_screen()
+
+    turtle.bgcolor('dodgerblue')
 
 
-    
-s_score = turtle.clone()
-u_score = turtle.clone()
-e_score = turtle.clone()
-k_score = turtle.clone()
+
+    w.clear()
+    up_gif.clear()
+    down_gif.clear()
+    right_gif.clear()
+    left_gif.clear()
+
+    turtle.pencolor("yellow")
+    turtle.pensize(4)
+    turtle.penup()
+    turtle.goto(350,350)
+    turtle.pendown()
+    turtle.goto(-350,350)
+    turtle.goto(-350,-350)
+    turtle.goto(350,-350)
+    turtle.goto(350,350)
+    turtle.penup()
+    turtle.goto(0,0)
+
+    #####################################################
+    #maya's code
+
+
+
+
+    kenya.showturtle()
+    kenya.goto(-200,200)
+
+    egypt.showturtle()
+    egypt.goto(-200,10)
+
+    uganda.showturtle()
+    uganda.goto(-200,-170)
+
+    syria.showturtle()
+    syria.goto(100,-170)
+
+    ###############################################
+
+    pizza = turtle.clone()
+    pizza.hideturtle()
+    turtle.register_shape("Pizza.gif")
+    pizza.shape("Pizza.gif")
+
+    hamburger = turtle.clone()
+    hamburger.hideturtle()
+    turtle.register_shape("burger_sandwich2.gif")
+    hamburger.shape("burger_sandwich2.gif")
+
+    water = turtle.clone()
+    water.hideturtle()
+    turtle.register_shape("water4.gif")
+    water.shape("water4.gif")
+
+    cola = turtle.clone()
+    cola.hideturtle()
+    turtle.register_shape("cocacola7.gif")
+    cola.shape("cocacola7.gif")
+    ##
+    ##hamburger = "burger_sandwich.gif"
+    ##
+    ##turtle.register_shape(hamburger)
+    ##turtle.shape(hamburger)
+    ##
+    ##water = "water.gif"
+    ##
+    ##turtle.register_shape(water)
+    ##turtle.shape(water)
+    ##
+    ##cola = "cocacola.gif"
+    ##
+    ##turtle.register_shape(cola)
+    ##turtle.shape(cola)
+
+    pizza.hideturtle()
+    pizza.goto(290,290)
+    pizza.stamp()
+    pizza.showturtle()
+
+    cola.hideturtle()
+    cola.goto(210,290)
+    cola.stamp()
+    cola.showturtle()
+
+    hamburger.hideturtle()
+    hamburger.goto(120,290)
+    print(hamburger.pos())
+    hamburger.stamp()
+    hamburger.showturtle()
+
+    water.hideturtle()
+    water.goto(40,290)
+    print(water.pos())
+    water.stamp()
+    water.showturtle()
+
+    turtle.penup()
+
+
+    plane.showturtle()
+
+
+    timer()#this is basicly activating he timer
+    c_food_s()
+    c_food_u()
+    c_food_e()
+    c_food_k()
+    ############################################################################
+turtle.onkeypress(game, "space")
+turtle.listen()
+
+############################################################################################
+#####eliass code
 
 #carmis code
 food_list = ["hamburger", "pizza", "cola", "water"]
@@ -202,10 +315,7 @@ turtle.listen()
 
 turtle.goto(200,0)#this is moing the turtle to 200 to write the timer 
 
-##################
-start_time = 120##chpse how much time till the game ends 
-##################
- 
+
 def timer():#the game timer
     global start_time
     start_time = start_time-1
@@ -245,10 +355,7 @@ def c_food_k():
         k_score.write('kenya: we want ' + kenya_food)
         #return kenya_food
 
-c_food_s()
-c_food_u()
-c_food_e()
-c_food_k()
+
 score = 0
 plane_food = 'aa'
 score_1 = turtle.clone()
@@ -314,7 +421,7 @@ def move_plane():#how the plane moves
         c_food_k()
             
         
-timer()#this is basicly activating he timer 
+
 
 
 
@@ -322,10 +429,7 @@ timer()#this is basicly activating he timer
 clear_list = []
 turtle.goto(0, 0)
 
-UP_EDGE = SIZE_Y/2
-DOWN_EDGE = -SIZE_Y/2
-RIGHT_EDGE = SIZE_X/2
-LEFT_EDGE = -SIZE_X/2
+
 
 
 
@@ -334,6 +438,12 @@ LEFT_EDGE = -SIZE_X/2
 ##turtle.ontimer(c_food_s, 900)
 ##turtle.ontimer(c_food_e ,1500)
 ##turtle.ontimer(c_food_k ,1700)
+
+        
+
+
+
+        
 
 
 
