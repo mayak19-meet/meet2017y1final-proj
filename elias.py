@@ -1,4 +1,4 @@
-
+######################################################################elias's code 
 import turtle
 import random 
 import time
@@ -100,5 +100,5 @@ def move_plane():#how the plane moves
         print('you moevd UP ')
         
 timer()#this is baisicly activating he timer 
-
+############################################################################################
             
