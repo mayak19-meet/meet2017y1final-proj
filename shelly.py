@@ -69,3 +69,11 @@ water.hideturtle()
 water.goto(40,290)
 water.stamp()
 water.showturtle()
+
+
+
+
+
+
+
+

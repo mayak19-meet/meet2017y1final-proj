@@ -17,6 +17,7 @@ turtle.goto(350,350)
 turtle.penup()
 turtle.goto(0,0)
 
+<<<<<<< HEAD
 #####################################################
 #maya's code
 SIZE_X=700
@@ -24,6 +25,16 @@ SIZE_Y=700
 
 kenya=turtle.clone()
 egypt=turtle.clone()
+=======
+
+#####################################################
+#maya's code
+SIZE_X=800
+SIZE_Y=800
+
+kenya=turtle.clone()
+EGYPT=turtle.clone()
+>>>>>>> 3ac7abd5355f5ab173355bed5548adc719eb5469
 uganda=turtle.clone()
 syria=turtle.clone()
 
@@ -32,22 +43,40 @@ turtle.register_shape("kenya3.gif")
 kenya.shape('kenya3.gif')
 kenya.goto(-200,200)
 
+<<<<<<< HEAD
 egypt.penup()
 turtle.register_shape("EGYPT1.gif")
 egypt.shape('EGYPT1.gif')
 egypt.goto(-200,10)
+=======
+EGYPT.penup()
+turtle.register_shape("EGYPT1.gif")
+EGYPT.shape('EGYPT1.gif')
+EGYPT.goto(-200,10)
+>>>>>>> 3ac7abd5355f5ab173355bed5548adc719eb5469
 
 uganda.penup()
 turtle.register_shape("uganda3.gif")
 uganda.shape('uganda3.gif')
+<<<<<<< HEAD
 uganda.goto(-200,-170)
+=======
+uganda.goto(-200,-175)
+>>>>>>> 3ac7abd5355f5ab173355bed5548adc719eb5469
 
 syria.penup()
 turtle.register_shape("syria2.gif")
 syria.shape('syria2.gif')
+<<<<<<< HEAD
 syria.goto(100,-170)
 
 ###############################################
+=======
+syria.goto(100,-175)
+
+###############################################
+
+>>>>>>> 3ac7abd5355f5ab173355bed5548adc719eb5469
 
 pizza = turtle.clone()
 pizza.hideturtle()
@@ -110,6 +139,7 @@ water.showturtle()
 
 
 
+<<<<<<< HEAD
 ############################################################################################
 #####eliass code
 turtle.tracer(1,0)
@@ -334,6 +364,8 @@ LEFT_EDGE = -SIZE_X/2
 ##turtle.ontimer(c_food_s, 900)
 ##turtle.ontimer(c_food_e ,1500)
 ##turtle.ontimer(c_food_k ,1700)
+=======
+>>>>>>> 3ac7abd5355f5ab173355bed5548adc719eb5469
 
 
 
