@@ -16,7 +16,8 @@ turtle.goto(350,-350)
 turtle.goto(350,350)
 turtle.penup()
 turtle.goto(0,0)
-
+bb = turtle.clone()
+bb.goto(100, 100)
 #####################################################
 #maya's code
 SIZE_X=700
@@ -272,16 +273,16 @@ def move_plane():#how the plane moves
     
     if plane.pos() == hamburger.pos():
         plane_food = 'hamburger'
-        print('you picked up hamburger') 
+        bb.write('you picked up hamburger') 
     if plane.pos()== cola.pos():
         plane_food = 'cola'
-        print('you picked up cola') 
+        bb.write('you picked up cola') 
     if plane.pos() == pizza.pos():
         plane_food = 'pizza'
-        print('you picked up pizza') 
+        bb.write('you picked up pizza') 
     if plane.pos() == water.pos():
         plane_food = 'water'
-        print('you picked up water')
+        bb.write('you picked up water')
 
     print("syria food: " + syria_food)
     print("plane_food: " + plane_food)
