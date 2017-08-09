@@ -16,21 +16,35 @@ def r_food():
     rand_index = random.randint(0, 3)
     return food_list[rand_index]
     
+s_score = turtle.clone()
+u_score = turtle.clone()
+e_score = turtle.clone()
+k_score = turtle.clone()
 
 def c_food_s():
+        global s_score
         syria_food = r_food()
-        turtle.clear()
-        turtle.write((100,-145), 'syria: we want' + syria_food) 
+        s_score.goto(100,-145)
+        s_score.clear()
+        s_score.write('syria: we want ' + syria_food) 
 def c_food_u():
+        global u_score
         uganda_food = r_food()
-        turtle.clear()
-        turtle.write((-200,-145), 'uganda: we want' + uganda_food)
+        u_score.goto(-200,-145)
+        u_score.clear()
+        u_score.write('uganda: we want ' + uganda_food)
 def c_food_e():
+        global e_score
         egypt_food = r_food()
-        turtle.write((-150,10), 'egypt: we want' + egypt_food)
+        e_food.goto(-150,10)
+        e_score.clear()
+        turtle.write('egypt: we want ' + egypt_food)
 def c_food_k():
+        global k_score
         kenya_food = r_food()
-        turtle.write((-200,230), 'kenya: we want' + kenya_food)
+        k_score.goto(-200,230)
+        k_score.clear()
+        turtle.write('kenya: we want ' + kenya_food)
 
 turtle.ontimer(c_food_u ,1200)
 turtle.ontimer(c_food_s, 900)
@@ -70,11 +84,9 @@ if plane.pos() == kenya.pos() and plane_food == kenya_food:
     turtle.clear()
     turtle.write(score)
 
- ##########inside move_plane!!!!!!!!!!!!!!!!!!!!!!!   
+ ##########move_plane!!!!!!!!!!!!!!!!!!!!!!!   
 new_pos = plane.pos()
 new_x_pos = new_pos[0]
 new_y_pos = new_pos[1]
-if new_y_pos < UP_EDGE and new_y_pos > DOWN_EDGE :
-    move_plane()
-if new_x_pos < RIGHT_EDGE and new_x_pos > LEFT_EDGE:
+if new_y_pos < UP_EDGE and new_y_pos > DOWN_EDGE and new_x_pos < RIGHT_EDGE and new_x_pos > LEFT_EDGE:
     move_plane()
