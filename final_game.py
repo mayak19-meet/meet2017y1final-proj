@@ -34,7 +34,8 @@ turtle.goto(350,350)
 turtle.penup()
 turtle.goto(0,0)
 turtle.hideturtle()
-
+bb = turtle.clone()
+bb.goto(100,100)
 up_gif = turtle.clone()
 up_gif.hideturtle()
 turtle.register_shape("arrowup.gif")
@@ -90,9 +91,13 @@ w.goto(-290,-130)
 w.write("the game will start in 5 seconds", font = ("Ariel",25,"normal"))
 
 s_score = turtle.clone()
+s_score.pencolor('yellow')
 u_score = turtle.clone()
+u_score.pencolor('yellow')
 e_score = turtle.clone()
+e_score.pencolor('yellow')
 k_score = turtle.clone()
+k_score.pencolor('yellow')
 ##################
 start_time = 120##chpse how much time till the game ends 
 ##################
@@ -347,36 +352,37 @@ def timer():#the game timer
 def c_food_s():
         global s_score, syria_food
         syria_food = r_food()
-        s_score.goto(100,-145)
+        s_score.goto(173,-145)
         s_score.clear()
-        s_score.write('syria: we want ' + syria_food)
+        s_score.write('We want ' + syria_food)
         #return syria_food
 def c_food_u():
         global u_score, uganda_food
         uganda_food = r_food()
-        u_score.goto(-200,-145)
+        u_score.goto(-127,-145)
         u_score.clear()
-        u_score.write('uganda: we want ' + uganda_food)
+        u_score.write('We want ' + uganda_food)
         #return uganda_food
 def c_food_e():
         global e_score, egypt_food
         egypt_food = r_food()
-        e_score.goto(-150,10)
+        e_score.goto(-127,10)
         e_score.clear()
-        e_score.write('egypt: we want ' + egypt_food)
+        e_score.write('We want ' + egypt_food)
         #return egypt_food
 def c_food_k():
         global k_score, kenya_food 
         kenya_food = r_food()
-        k_score.goto(-200,230)
+        k_score.goto(-127,230)
         k_score.clear()
-        k_score.write('kenya: we want ' + kenya_food)
+        k_score.write('We want ' + kenya_food)
         #return kenya_food
 
 
 score = 0
 plane_food = 'aa'
 score_1 = turtle.clone()
+score_1.color('white')
 score_1.goto(300,0)
 def move_plane():#how the plane moves 
     global plane_food, score
@@ -396,17 +402,21 @@ def move_plane():#how the plane moves
 
     
     if plane.pos() == hamburger.pos():
+        bb.clear()
         plane_food = 'hamburger'
-        print('you picked up hamburger') 
+        bb.write('you picked up hamburger',font = ("Ariel",20,"normal"))
     if plane.pos()== cola.pos():
+        bb.clear()
         plane_food = 'cola'
-        print('you picked up cola') 
+        bb.write('you picked up cola',font = ("Ariel",20,"normal"))
     if plane.pos() == pizza.pos():
+        bb.clear()
         plane_food = 'pizza'
-        print('you picked up pizza') 
+        bb.write('you picked up pizza',font = ("Ariel",20,"normal"))
     if plane.pos() == water.pos():
+        bb.clear()
         plane_food = 'water'
-        print('you picked up water')
+        bb.write('you picked up water',font = ("Ariel",20,"normal"))
 
     print("syria food: " + syria_food)
     print("plane_food: " + plane_food)
@@ -416,26 +426,26 @@ def move_plane():#how the plane moves
     if ((plane.pos()[0] - syria.pos()[0])**2 + (plane.pos()[1] - syria.pos()[1])**2)**0.5 < 50 and plane_food == syria_food:
         score = score+1
         score_1.clear()
-        score_1.write('score is: ' + str(score))
+        score_1.write('score: ' + str(score),font = ("Ariel",20,"normal", 'bold'))
         c_food_s()
     #if plane.pos() == uganda.pos() and plane_food == uganda_food:
     if ((plane.pos()[0] - uganda.pos()[0])**2 + (plane.pos()[1] - uganda.pos()[1])**2)**0.5 < 50 and plane_food == uganda_food:
         score = score+1
         score_1.clear()
-        score_1.write('score is: ' + str(score))
+        score_1.write('score: ' + str(score),font = ("Ariel",20,"normal", 'bold'))
         c_food_u()
         
     #if plane.pos() == egypt.pos() and plane_food == egypt_food:
     if ((plane.pos()[0] - egypt.pos()[0])**2 + (plane.pos()[1] - egypt.pos()[1])**2)**0.5 < 50 and plane_food == egypt_food:
         score = score+1
         score_1.clear()
-        score_1.write('score is: ' + str(score))
+        score_1.write('score: ' + str(score),font = ("Ariel",20,"normal", 'bold'))
         c_food_e()
     #if plane.pos() == kenya.pos() and plane_food == kenya_food:
     if ((plane.pos()[0] - kenya.pos()[0])**2 + (plane.pos()[1] - kenya.pos()[1])**2)**0.5 < 50 and plane_food == kenya_food:
         score = score+1
         score_1.clear()
-        score_1.write('score is: ' + str(score))
+        score_1.write('score: ' + str(score),font = ("Ariel",20,"normal", 'bold'))
         c_food_k()
             
         
