@@ -138,8 +138,8 @@ end_time= time.time()+120
 
 plane=turtle.clone()
 #the shape of the plane
-turtle.register_shape("download (2).gif")
-plane.shape("download (2).gif")
+turtle.register_shape("photoplane1.gif")
+plane.shape("photoplane1.gif")
 turtle.hideturtle()
 
 
