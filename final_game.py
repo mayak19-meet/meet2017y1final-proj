@@ -13,10 +13,10 @@ RIGHT_EDGE = SIZE_X/2
 LEFT_EDGE = -SIZE_X/2
 
 #how far the snake moves 
-SQUARE_SIZE=10
+SQUARE_SIZE=40
 pos_list=[]
 
-#turtle.tracer(1,0)
+turtle.tracer(1,0)
 
 #def first_screen():
 w = turtle.clone()
@@ -87,7 +87,7 @@ right_gif.stamp()
 
 w.pencolor("aliceblue")
 w.goto(-290,-130)
-w.write("Press SPACE to continue", font = ("Ariel",35,"normal"))
+w.write("the game will start in 5 seconds", font = ("Ariel",25,"normal"))
 
 s_score = turtle.clone()
 u_score = turtle.clone()
@@ -137,12 +137,18 @@ turtle.register_shape("download (2).gif")
 plane.shape("download (2).gif")
 turtle.hideturtle()
 
+
 new_pos = plane.pos()
 new_x_pos = new_pos[0]
 new_y_pos = new_pos[1]
+    
+pizza = turtle.clone()
+hamburger = turtle.clone()
+water = turtle.clone()
+cola = turtle.clone()
 
 def game():
-    global UP_EDGE, DOWN_EDGE, LEFT_EDGE, RIGHT_EDGE, SIZE_X, SIZE_Y, start_time
+    global new_x_pos, new_y_pos, UP_EDGE, DOWN_EDGE, LEFT_EDGE, RIGHT_EDGE, SIZE_X, SIZE_Y, start_time
 
     ##################################
     #to Carmi
@@ -155,7 +161,7 @@ def game():
     turtle.bgcolor('dodgerblue')
 
 
-
+    time.sleep(5)
     w.clear()
     up_gif.clear()
     down_gif.clear()
@@ -184,32 +190,32 @@ def game():
     kenya.goto(-200,200)
 
     egypt.showturtle()
-    egypt.goto(-200,10)
+    egypt.goto(-200,00)
 
     uganda.showturtle()
-    uganda.goto(-200,-170)
+    uganda.goto(-200,-160)
 
     syria.showturtle()
-    syria.goto(100,-170)
+    syria.goto(100,-160)
 
     ###############################################
 
-    pizza = turtle.clone()
+    
     pizza.hideturtle()
     turtle.register_shape("Pizza.gif")
     pizza.shape("Pizza.gif")
 
-    hamburger = turtle.clone()
+    
     hamburger.hideturtle()
     turtle.register_shape("burger_sandwich2.gif")
     hamburger.shape("burger_sandwich2.gif")
 
-    water = turtle.clone()
+    
     water.hideturtle()
     turtle.register_shape("water4.gif")
     water.shape("water4.gif")
 
-    cola = turtle.clone()
+    
     cola.hideturtle()
     turtle.register_shape("cocacola7.gif")
     cola.shape("cocacola7.gif")
@@ -230,23 +236,23 @@ def game():
     ##turtle.shape(cola)
 
     pizza.hideturtle()
-    pizza.goto(290,290)
+    pizza.goto(280,280)
     pizza.stamp()
     pizza.showturtle()
 
     cola.hideturtle()
-    cola.goto(210,290)
+    cola.goto(200,280)
     cola.stamp()
     cola.showturtle()
 
     hamburger.hideturtle()
-    hamburger.goto(120,290)
+    hamburger.goto(120,280)
     print(hamburger.pos())
     hamburger.stamp()
     hamburger.showturtle()
 
     water.hideturtle()
-    water.goto(40,290)
+    water.goto(40,280)
     print(water.pos())
     water.stamp()
     water.showturtle()
@@ -257,6 +263,8 @@ def game():
     plane.showturtle()
 
 
+
+
     timer()#this is basicly activating he timer
     c_food_s()
     c_food_u()
@@ -265,6 +273,8 @@ def game():
     ############################################################################
 turtle.onkeypress(game, "space")
 turtle.listen()
+
+
 
 ############################################################################################
 #####eliass code
@@ -278,28 +288,36 @@ def r_food():
 def up():
     global direction, new_x_pos, new_y_pos, UP_EDGE, DOWN_EDGE, RIGHT_EDGE, LEFT_EDGE
     direction=UP
-    if new_y_pos < UP_EDGE and new_y_pos > DOWN_EDGE and new_x_pos < RIGHT_EDGE and new_x_pos > LEFT_EDGE:
+    new_x_pos = plane.pos()[0]
+    new_y_pos = plane.pos()[1]
+    if new_y_pos < UP_EDGE: #and new_y_pos > DOWN_EDGE and new_x_pos < RIGHT_EDGE and new_x_pos > LEFT_EDGE:
         move_plane()
     print("you pressed up ")
 
 def down():
     global direction, new_x_pos, new_y_pos, UP_EDGE, DOWN_EDGE, RIGHT_EDGE, LEFT_EDGE
     direction=DOWN
-    if new_y_pos < UP_EDGE and new_y_pos > DOWN_EDGE and new_x_pos < RIGHT_EDGE and new_x_pos > LEFT_EDGE:
+    new_x_pos = plane.pos()[0]
+    new_y_pos = plane.pos()[1]
+    if  new_y_pos > DOWN_EDGE: #and new_y_pos < UP_EDGEand new_x_pos < RIGHT_EDGE and new_x_pos > LEFT_EDGE:
         move_plane()
     print("you pressed DOWN ")
 
 def right():
     global direction, new_x_pos, new_y_pos, UP_EDGE, DOWN_EDGE, RIGHT_EDGE, LEFT_EDGE
     direction=RIGHT
-    if new_y_pos < UP_EDGE and new_y_pos > DOWN_EDGE and new_x_pos < RIGHT_EDGE and new_x_pos > LEFT_EDGE:
+    new_x_pos = plane.pos()[0]
+    new_y_pos = plane.pos()[1]
+    if new_x_pos < RIGHT_EDGE: # and new_y_pos < UP_EDGE and new_y_pos > DOWN_EDGE and new_x_pos > LEFT_EDGE:
         move_plane()
     print("you pressed RIGHT ")
 
 def left():
     global direction, new_x_pos, new_y_pos, UP_EDGE, DOWN_EDGE, RIGHT_EDGE, LEFT_EDGE
     direction=LEFT
-    if new_y_pos < UP_EDGE and new_y_pos > DOWN_EDGE and new_x_pos < RIGHT_EDGE and new_x_pos > LEFT_EDGE:
+    new_x_pos = plane.pos()[0]
+    new_y_pos = plane.pos()[1]
+    if new_x_pos > LEFT_EDGE: #and new_y_pos < UP_EDGE and new_y_pos > DOWN_EDGE and new_x_pos < RIGHT_EDGE:
         move_plane()
     print("you pressed LEFT ")
 def turn():
@@ -395,26 +413,26 @@ def move_plane():#how the plane moves
     print("plane_pos: " + str(plane.pos()))
     
     #if plane.pos() == syria.pos() and plane_food == syria_food:
-    if (plane.pos()[0] - syria.pos()[0])**2 + (plane.pos()[1] - syria.pos()[1])**2 < 50 and plane_food == syria_food:
+    if ((plane.pos()[0] - syria.pos()[0])**2 + (plane.pos()[1] - syria.pos()[1])**2)**0.5 < 50 and plane_food == syria_food:
         score = score+1
         score_1.clear()
         score_1.write('score is: ' + str(score))
         c_food_s()
     #if plane.pos() == uganda.pos() and plane_food == uganda_food:
-    if (plane.pos()[0] - uganda.pos()[0])**2 + (plane.pos()[1] - uganda.pos()[1])**2 < 50 and plane_food == uganda_food:
+    if ((plane.pos()[0] - uganda.pos()[0])**2 + (plane.pos()[1] - uganda.pos()[1])**2)**0.5 < 50 and plane_food == uganda_food:
         score = score+1
         score_1.clear()
         score_1.write('score is: ' + str(score))
         c_food_u()
         
     #if plane.pos() == egypt.pos() and plane_food == egypt_food:
-    if (plane.pos()[0] - egypt.pos()[0])**2 + (plane.pos()[1] - egypt.pos()[1])**2 < 50 and plane_food == egypt_food:
+    if ((plane.pos()[0] - egypt.pos()[0])**2 + (plane.pos()[1] - egypt.pos()[1])**2)**0.5 < 50 and plane_food == egypt_food:
         score = score+1
         score_1.clear()
         score_1.write('score is: ' + str(score))
         c_food_e()
     #if plane.pos() == kenya.pos() and plane_food == kenya_food:
-    if (plane.pos()[0] - kenya.pos()[0])**2 + (plane.pos()[1] - kenya.pos()[1])**2 < 50 and plane_food == kenya_food:
+    if ((plane.pos()[0] - kenya.pos()[0])**2 + (plane.pos()[1] - kenya.pos()[1])**2)**0.5 < 50 and plane_food == kenya_food:
         score = score+1
         score_1.clear()
         score_1.write('score is: ' + str(score))
@@ -425,7 +443,7 @@ def move_plane():#how the plane moves
 
 
 
-
+game()
 clear_list = []
 turtle.goto(0, 0)
 
