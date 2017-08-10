@@ -407,7 +407,7 @@ def timer():#the game timer
         turtle.goto(-320,-162)
         turtle.pencolor("darkslategray")
         turtle.write("GAME OVER :(" , font = ("Ariel",62,"normal","bold"))
-        time.sleep(10)
+        time.sleep(5)
         quit()
         print("you run out of time ")
     turtle.ontimer(timer,1000)
